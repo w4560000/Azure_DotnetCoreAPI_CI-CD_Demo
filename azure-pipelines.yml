@@ -16,9 +16,9 @@ variables:
   buildConfiguration: 'Release'
 
   ${{if contains(variables['Build.SourceBranchName'], 'master')}}:
-      ASPNETCORE_ENVIRONMENT: 'PROD'
+      ASPNETCORE_ENVIRONMENT: 'prod'
   ${{if contains(variables['Build.SourceBranchName'], 'DEV')}}:
-      ASPNETCORE_ENVIRONMENT: 'DEV'
+      ASPNETCORE_ENVIRONMENT: 'dev'
 
 
 steps:
