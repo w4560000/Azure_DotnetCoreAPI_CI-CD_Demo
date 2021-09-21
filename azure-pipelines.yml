@@ -16,9 +16,9 @@ variables:
   buildConfiguration: 'Release'
 
   ${{if contains(variables['Build.SourceBranchName'], 'master')}}:
-      ASPNETCORE_ENVIRONMENT: 'prod'
+      EnvironmentName: 'prod'
   ${{if contains(variables['Build.SourceBranchName'], 'DEV')}}:
-      ASPNETCORE_ENVIRONMENT: 'dev'
+      EnvironmentName: 'dev'
 
 
 steps:
@@ -26,7 +26,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      $Env:ASPNETCORE_ENVIRONMENT
+      [System.Environment]::SetEnvironmentVariable('ASPNETCORE_ENVIRONMENT', '$(EnvironmentName)' [System.EnvironmentVariableTarget]::Machine)
 
 - task: DotNetCoreCLI@2
   displayName: Restore
@@ -45,7 +45,7 @@ steps:
   inputs:
     command: publish
     publishWebProjects: True
-    arguments: '--configuration $(BuildConfiguration) --output "$(build.artifactstagingdirectory)"'
+    arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory) '
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact'
