@@ -26,7 +26,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      [System.Environment]::SetEnvironmentVariable('ASPNETCORE_ENVIRONMENT', '$(EnvironmentName)' [System.EnvironmentVariableTarget]::Machine)
+      [Environment]::SetEnvironmentVariable("ASPNETCORE_ENVIRONMENT", "$(EnvironmentName)", "Machine")
 
 - task: DotNetCoreCLI@2
   displayName: Restore
