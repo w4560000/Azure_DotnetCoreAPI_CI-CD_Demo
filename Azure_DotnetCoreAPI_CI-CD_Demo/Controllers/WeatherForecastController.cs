@@ -26,7 +26,7 @@ namespace Azure_DotnetCoreAPI_CI_CD_Demo.Controllers
         {
             return new List<string>()
             {
-                $"環境:{_configuration["Env"]}", $"版本:1.0"
+                $"環境:{_configuration["Env"]}", $"版本:1.1"
             };
         }
     }
