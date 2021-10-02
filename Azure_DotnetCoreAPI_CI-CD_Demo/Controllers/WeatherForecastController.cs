@@ -31,6 +31,10 @@ namespace Azure_DotnetCoreAPI_CI_CD_Demo.Controllers
             };
         }
 
+        /// <summary>
+        /// 123
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("WriteToFile")]
         public async Task WriteToFile()
         {
