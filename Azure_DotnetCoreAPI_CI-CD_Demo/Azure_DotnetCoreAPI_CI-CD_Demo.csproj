@@ -5,5 +5,11 @@
     <RootNamespace>Azure_DotnetCoreAPI_CI_CD_Demo</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Update="upload\TextFile.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 
 </Project>
